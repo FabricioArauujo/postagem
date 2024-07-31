@@ -1,0 +1,15 @@
+#{extends 'main.html' /}
+#{set title:'Listagem de Pessoas' /}
+
+<p>Postagem cadastradas</p>
+
+<ul>
+	#{list items:postagem, as:'p'}
+		<li>${p.titulo} (${p.conteudo}), (${p.autor}), (${(p.data).format('dd/MMM/yyy')}) | <a href="@{Postagens.remover(p.id)}">Remover</a></li>
+	#{/list}
+	#{else}
+		<li>Nenhuma postagem cadastrada</li>
+	#{/else}
+</ul>
+
+<a href="@{Postagens.form}">Nova Postagem</a>
